@@ -1,4 +1,4 @@
-// locale kayıt
+
 export function saveToLocalStorage() {
           localStorage.setItem('toDo', JSON.stringify(toDo));
       }

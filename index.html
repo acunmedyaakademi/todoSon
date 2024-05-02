@@ -6,22 +6,13 @@
     <title>Todo Uygulaması</title>
     <script type="module" src="assets/js/script.js" defer></script>
     <link rel="stylesheet" href="assets/css/style.css">
-    <style>
-        body {
-            background-image: url(assets/img/indir.jpeg);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
-    </style>
 </head>
 <body>
-    <div class="div">
-        <form id="add-task-form">
-            <input type="text" id="task-input" placeholder="Görev girin" required>
-            <input type="date" id="task-date-input" placeholder="Tarih girin">
-            <button type="submit">Görev Ekle</button>
+    <div class="container">
+        <form class="forum">
+            <input type="text" class="first-input" placeholder="Add Mission" required>
+            <input type="date" class="date-input" placeholder="Date">
+            <button type="submit">Add Mission</button>
         </form>
 
         <ul class="todo"></ul>

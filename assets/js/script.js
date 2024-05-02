@@ -1,17 +1,17 @@
 import { saveToLocalStorage, toDo } from "./localStorage.js";
 
 
-const form = document.getElementById('add-task-form');
+const form = document.querySelector('.forum');
 const toDoEkle = document.querySelector('.todo');
 
-// yapılacakları listeledim
+
 function getToDo() {
     toDoEkle.innerHTML = '';
     for (let i = 0; i < toDo.length; i++) {
         const task = toDo[i];
         const li = document.createElement('li');
 
-        // yapıalacak şeyi ve tarihini yazdım
+
         li.id = i;
         li.style.textDecoration = task.completed ? 'line-through' : 'none';
         li.innerHTML = `
@@ -24,7 +24,7 @@ function getToDo() {
         toDoEkle.appendChild(li);
     }
 
-    bindButtons(); // butonlara işlev atadım
+    bindButtons(); 
 }
 
 // butonları çağırdım
@@ -34,12 +34,12 @@ function bindButtons() {
     bindOkeyBtns();
 }
 
-// yapılacka şeyi ekliyorum
+
 function addGorev(e) {
     e.preventDefault();
     
-    const taskInput = document.getElementById('task-input').value;
-    const taskDateInput = document.getElementById('task-date-input').value; 
+    const taskInput = document.querySelector('.first-input').value;
+    const taskDateInput = document.querySelector('.date-input').value; 
     
     if (taskInput.trim() === '') {
         alert("Lütfen bir görev girin.");
@@ -52,17 +52,17 @@ function addGorev(e) {
         tarih: taskDateInput
     };
     
-    // görevi ekrana pushladım
+
     toDo.push(newTask);
-    // locale kaydetim
+
     saveToLocalStorage(); 
     getToDo(); 
 
     
-    document.getElementById('add-task-form').reset();
+    document.querySelector('.forum').reset();
 }
 
-// silme butonu
+
 function bindDeleteBtns() {
     const deleteBtns = document.querySelectorAll('.deleteBtn');
     for (const deleteBtn of deleteBtns) {
@@ -75,7 +75,7 @@ function bindDeleteBtns() {
     }
 }
 
-// düzenle butonu
+
 function bindEditBtns() {
     const editBtns = document.querySelectorAll('.editBtn');
     for (const editBtn of editBtns) {
@@ -91,7 +91,7 @@ function bindEditBtns() {
     }
 }
 
-// tamamla ve aktif etme butonu
+
 function bindOkeyBtns() {
     const okeyBtns = document.querySelectorAll('.okeyBtn');
     for (const okeyBtn of okeyBtns) {
@@ -104,12 +104,7 @@ function bindOkeyBtns() {
     }
 }
 
-// // locale kayıt
-// function saveToLocalStorage() {
-//     localStorage.setItem('toDo', JSON.stringify(toDo));
-// }
 
-// form kaydedildiğinde görevi ekliyorum
 form.addEventListener('submit', addGorev);
 
 
